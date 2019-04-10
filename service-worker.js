@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/cellviewer/precache-manifest.8994c8afa451732882e0047ff83b052f.js"
+  "/cellviewer/precache-manifest.b189e7ec37ce2f4cec3033a173aa78e4.js"
 );
 
 workbox.clientsClaim();
