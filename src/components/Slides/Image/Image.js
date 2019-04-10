@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-import { Container, Row, Button, Modal } from 'reactstrap';
+import { Container } from 'reactstrap';
 import Cell from "./Cell/Cell.js"
 import './Image.css';
+
+const colors={
+    "00": [1,0,0],
+    "01": [0,1,0],
+    "10": [0,0,1],
+    "11": [1,1,0]
+}
 
 export default class ImageCell extends Component {
     constructor(props) {
@@ -21,10 +28,24 @@ export default class ImageCell extends Component {
     }
 
     getSize(){
-        for(var i=1; i<this.props.colony.length; i++){
+        this.setState({
+            modal: true
+        });
+    }
+
+    render() {
+        this.labels=[];
+        var hue = 0;
+        var color = "";
+        for(var i=2; i<this.props.colony.length; i++){
             var cell = this.props.colony[i];
-            // if self.generation>0: label_color = color_list[int(cell[0][1:self.generation+1],2)]
-            
+            var code = cell[0][1]+cell[0][2];
+            hue  =  255-((this.props.colony[0]-(cell[0].length-1))/
+                    (this.props.colony[0]-this.props.colony[1]+1) * 255);
+            color = "rgb(" +
+                (hue*colors[code][0]).toString() + "," +
+                (hue*colors[code][1]).toString() + "," +
+                (hue*colors[code][2]).toString() + ")";
             this.labels.push(
                 <div
                     key={cell[0]}
@@ -33,17 +54,9 @@ export default class ImageCell extends Component {
                         top: (cell[2]*100/this.newImg.height).toString()+"%",
                         left: (cell[1]*100/this.newImg.width).toString()+"%"
                         }}>
-                    <Cell k={cell[0]}/>
+                    <Cell k={cell[0]} color={color}/>
                 </div>)
         }
-        console.log(this.labels);
-
-        this.setState(prevState => ({
-            modal: true
-        }));
-    }
-
-    render() {
         if(this.state.modal){
             return (
                 <Container position="relative" style={{margin:"0", padding:"0"}}>
@@ -51,7 +64,8 @@ export default class ImageCell extends Component {
                         id="im"
                         src={this.props.src} 
                         alt="im"
-                        className="image"/>
+                        className="image"
+                        />
                     {this.labels}
                 </Container>
             );

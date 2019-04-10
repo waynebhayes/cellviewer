@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Container, Row, Button, Modal } from 'reactstrap';
 import Slides from '../Slides/Slides.js';
 import $ from 'jquery';
 import './Sample.css';
@@ -46,12 +45,16 @@ export default class Sample extends Component {
             data[2] = Number(data[2]);
             data[3] = Number(data[3]);
             if(!this.colony.hasOwnProperty(data[0])){ 
-                this.colony[data[0]] = [0]
+                this.colony[data[0]] = [0,100]
             }
             this.colony[data[0]].push([data[1],data[2],data[3]])
             if(this.colony[data[0]][0]< data[1].length-1){
                 this.colony[data[0]][0] = data[1].length-1;
             }
+            if(this.colony[data[0]][1]> data[1].length-1){
+                this.colony[data[0]][1] = data[1].length-1;
+            }
+            
         }
         this.setState({
             tog:!this.state.tog

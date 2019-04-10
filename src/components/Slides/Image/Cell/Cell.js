@@ -24,14 +24,13 @@ export default class Cell extends Component {
                 <div 
                     id={"Tooltip"+this.props.k}
                     style={{
-                        backgroundColor:"red",
+                        backgroundColor:this.props.color,
                         width:"10px",
                         height:"10px"
                     }}/>
                 <Tooltip placement="right" isOpen={this.state.tooltipOpen} target={"Tooltip"+this.props.k} toggle={this.toggle}>
                     <div 
                         style={{
-                            width:"40px",
                             textAlign:"center",
                             backgroundColor:"yellow",
                             borderRadius:"5px"}}>
