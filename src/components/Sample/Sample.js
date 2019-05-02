@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Slides from '../Slides/Slides.js';
 import $ from 'jquery';
 import './Sample.css';
+import srcTree from "../../output/test.svg";
+import srcPie from "../../output/pie.svg";
 
 export default class Sample extends Component {
     constructor(props) {
@@ -66,7 +68,11 @@ export default class Sample extends Component {
             return null;
         }
         return (
-            <Slides imgs={this.images} colony={this.colony}/>
+            <Slides 
+                imgs={this.images} 
+                srcTree={srcTree}
+                src_pie={srcPie}
+                colony={this.colony}/>
         );
     }
 } 

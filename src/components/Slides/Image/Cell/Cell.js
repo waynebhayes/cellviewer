@@ -25,8 +25,8 @@ export default class Cell extends Component {
                     id={"Tooltip"+this.props.k}
                     style={{
                         backgroundColor:this.props.color,
-                        width:"10px",
-                        height:"10px"
+                        width:"7px",
+                        height:"7px"
                     }}/>
                 <Tooltip placement="right" isOpen={this.state.tooltipOpen} target={"Tooltip"+this.props.k} toggle={this.toggle}>
                     <div 
