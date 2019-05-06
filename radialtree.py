@@ -77,7 +77,7 @@ def get_leaf_count(node):
     return sum([get_leaf_count(child) for child in node.children])
 
 
-def set_angles(node, angle_spacings, lowest_angle):
+def set_angles(node, angle_spacings, lowest_angle, angleFile):
     '''Sets the angles for all of the nodes.'''
     if not node.children:
         node.angle = next(angle_spacings)
@@ -86,11 +86,12 @@ def set_angles(node, angle_spacings, lowest_angle):
         angles = []
         pie_angles = []
         for child in node.children:
-            angle,pie_angle = set_angles(child, angle_spacings, lowest_angle)
+            angle,pie_angle = set_angles(child, angle_spacings, lowest_angle, angleFile)
             angles.append(angle)
             pie_angles.append(pie_angle)
         node.angle = sum(angles)/len(node.children)
         node.pie_angle = max(pie_angles)
+    angleFile.write(",\n\t\"b"+node.object_id+"\": "+str(node.angle))
     return (node.angle,node.pie_angle)
 
 
@@ -218,7 +219,7 @@ def save_pie_chart(filename, root_list, step_size):
     
     start_x = SVG_SIZE//2
     start_y = SVG_SIZE//2
-    radius = SVG_SIZE//2-(2*step_size)
+    radius = SVG_SIZE//2
     
     radians0 = root_list[-1].pie_angle
     for node in root_list:
@@ -251,6 +252,8 @@ def main():
                         help='the path to the outputted plot')
     parser.add_argument('pie_path', metavar='PIE_FILE', type=Path,
                         help='the path to the outputted pie color chart')    
+    parser.add_argument('angle_path', metavar='ANGLE_FILE', type=Path,
+                        help='the path to the outputted angle json')        
 
     args = parser.parse_args()
 
@@ -272,8 +275,12 @@ def main():
     lowest_angle = 2*math.pi/total_leaves
     step_size = SVG_SIZE/2/(last_image+2)
     angle_spacings = angle_spacing_generator(total_leaves)
+    angleFile = open(args.angle_path, 'w')
+    angleFile.write("{\n\t\"name\": \"angle\"")
     for root in root_list:
-        set_angles(root, angle_spacings, lowest_angle)
+        set_angles(root, angle_spacings, lowest_angle, angleFile)
+    angleFile.write("\n}")
+    angleFile.close()
 
     # Compress tree
     for root in root_list:

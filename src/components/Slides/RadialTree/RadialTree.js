@@ -1,16 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 import Slider from '@material-ui/lab/Slider';
-// import Cell from "./Cell/Cell.js"
 import './RadialTree.css';
-
-
-const data = [
-    {title: "", value: 1, color: "rgb(255,0,0)"},
-    {title: "", value: 1, color: "rgb(0,255,0)"},
-    {title: "", value: 1, color: "rgb(0,0,255)"},
-    {title: "", value: 1, color: "rgb(255,255,0)"}
-  ]
   
 
 export default class RadialTree extends Component {
@@ -60,6 +51,7 @@ export default class RadialTree extends Component {
                     alt="im"
                     className="image2"
                     style={{
+                        objectFit: "fill",
                         height: (this.props.pos*80).toString()+"vh",
                         width: (this.props.pos*40).toString()+"vw",
                         right: ((40-this.props.pos*40)/2).toString()+"vw",

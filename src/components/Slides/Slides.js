@@ -3,6 +3,7 @@ import { Button, Row } from 'reactstrap';
 import ImageCell from './Image/Image';
 import Slider from '@material-ui/lab/Slider';
 import './Slides.css';
+import { timingSafeEqual } from 'crypto';
 
 export default class Slides extends Component {
     constructor(props) {
@@ -18,7 +19,20 @@ export default class Slides extends Component {
         this.change = this.change.bind(this);
         this.play = this.play.bind(this);
         this.click = this.click.bind(this);
+        this.spaceBar = this.spaceBar.bind(this);
         this.tree = null;
+        window.onkeyup = this.spaceBar;
+    }
+
+    spaceBar(e){
+        var key = e.keyCode ? e.keyCode : e.which;
+        if (key === 32) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+                e.preventDefault();
+            }
+            this.click();
+        }
     }
 
     change(e,i) {
@@ -59,8 +73,9 @@ export default class Slides extends Component {
                         src={this.images[pos][0]} 
                         colony={this.colony[this.images[pos][1]]}
                         srcTree={this.props.srcTree}
-                        pos={(pos+1)/this.images.length}
-                        src_pie={this.props.src_pie}/>
+                        pos={(pos+1.5)/(this.images.length+2)}
+                        src_pie={this.props.src_pie}
+                        angles={this.props.angles}/>
                     <Button
                         onClick={this.click}
                         style={{

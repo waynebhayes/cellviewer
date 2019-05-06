@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Slides from '../Slides/Slides.js';
 import $ from 'jquery';
 import './Sample.css';
+import angles from '../../output/angle.json';
 import srcTree from "../../output/test.svg";
 import srcPie from "../../output/pie.svg";
 
@@ -72,7 +73,8 @@ export default class Sample extends Component {
                 imgs={this.images} 
                 srcTree={srcTree}
                 src_pie={srcPie}
-                colony={this.colony}/>
+                colony={this.colony}
+                angles={angles}/>
         );
     }
 } 

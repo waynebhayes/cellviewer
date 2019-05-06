@@ -10,3 +10,5 @@ For local copy:
 - Download/clone files from simmaneal folder
 - Run ```npm install```
 - Use ```npm start``` and open localhost:3000
+
+python3.7 radialtree.py test.csv ./src/output/test.svg ./src/output/pie.svg ./src/output/angle.json
