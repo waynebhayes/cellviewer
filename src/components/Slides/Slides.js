@@ -3,7 +3,6 @@ import { Button, Row } from 'reactstrap';
 import ImageCell from './Image/Image';
 import Slider from '@material-ui/lab/Slider';
 import './Slides.css';
-import { timingSafeEqual } from 'crypto';
 
 export default class Slides extends Component {
     constructor(props) {

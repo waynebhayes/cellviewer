@@ -27,7 +27,11 @@ export default class ImageCell extends Component {
         this.newImg.onload = this.getSize;
         this.newImg.src = props.src;
 
+        // this.isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
+        // if(!this.isChrome){
+        window.onresize = this.getSize;
+        // }
     }
 
     getSize(){
@@ -40,6 +44,13 @@ export default class ImageCell extends Component {
     render() {
         this.labels=[];
         var color = "";
+
+        var h = window.innerHeight * 0.4;
+        var w = window.innerHeight * 0.4;
+        if(window.innerHeight*2 > window.innerWidth){
+            w = window.innerWidth * 0.2;
+            h = window.innerWidth * 0.2;
+        }
         for(var i=2; i<this.props.colony.length; i++){
             var cell = this.props.colony[i];
             var code = cell[0][1]+cell[0][2];
@@ -48,16 +59,26 @@ export default class ImageCell extends Component {
                 (255*colors[code][0]).toString() + "," +
                 (255*colors[code][1]).toString() + "," +
                 (255*colors[code][2]).toString() + ")";
-
             
 
+            // if(this.isChrome){
+            //     this.labels.push(
+            //         <Cell
+            //         key={cell[0]} k={cell[0]} color={color} 
+            //         bottomR={(50+(Math.sin(this.props.angles[cell[0]])*this.props.pos*40)).toString() + "vh"}
+            //         leftR={(75+(Math.cos(this.props.angles[cell[0]])*this.props.pos*20)).toString() + "vw"}
+            //         top={(cell[2]*100/this.newImg.height).toString()+"%"}
+            //         left={(cell[1]*100/this.newImg.width).toString()+"%"}/>);
+            // }else{
             this.labels.push(
                 <Cell
                 key={cell[0]} k={cell[0]} color={color} 
-                bottomR={(50+(Math.sin(this.props.angles[cell[0]])*this.props.pos*40)).toString() + "vh"}
-                leftR={(75+(Math.cos(this.props.angles[cell[0]])*this.props.pos*20)).toString() + "vw"}
+                bottomR={window.innerHeight*0.5 + (Math.sin(this.props.angles[cell[0]])*this.props.pos*h)}
+                leftR={window.innerWidth*0.75 + (Math.cos(this.props.angles[cell[0]])*this.props.pos*w)}
                 top={(cell[2]*100/this.newImg.height).toString()+"%"}
                 left={(cell[1]*100/this.newImg.width).toString()+"%"}/>);
+            // }
+
         }
         if(this.state.modal){
             return (

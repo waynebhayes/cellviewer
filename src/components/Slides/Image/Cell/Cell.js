@@ -5,7 +5,6 @@ import './Cell.css';
 export default class Cell extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props.angle);
         this.toggle = this.toggle.bind(this);
         this.state = {
             tooltipOpen: false
