@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Tooltip } from 'reactstrap';
-import './Cell.css';
 
 export default class Cell extends Component {
     constructor(props) {

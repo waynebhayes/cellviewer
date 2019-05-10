@@ -27,11 +27,7 @@ export default class ImageCell extends Component {
         this.newImg.onload = this.getSize;
         this.newImg.src = props.src;
 
-        // this.isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
-
-        // if(!this.isChrome){
         window.onresize = this.getSize;
-        // }
     }
 
     getSize(){
@@ -60,16 +56,6 @@ export default class ImageCell extends Component {
                 (255*colors[code][1]).toString() + "," +
                 (255*colors[code][2]).toString() + ")";
             
-
-            // if(this.isChrome){
-            //     this.labels.push(
-            //         <Cell
-            //         key={cell[0]} k={cell[0]} color={color} 
-            //         bottomR={(50+(Math.sin(this.props.angles[cell[0]])*this.props.pos*40)).toString() + "vh"}
-            //         leftR={(75+(Math.cos(this.props.angles[cell[0]])*this.props.pos*20)).toString() + "vw"}
-            //         top={(cell[2]*100/this.newImg.height).toString()+"%"}
-            //         left={(cell[1]*100/this.newImg.width).toString()+"%"}/>);
-            // }else{
             this.labels.push(
                 <Cell
                 key={cell[0]} k={cell[0]} color={color} 
@@ -77,7 +63,6 @@ export default class ImageCell extends Component {
                 leftR={window.innerWidth*0.75 + (Math.cos(this.props.angles[cell[0]])*this.props.pos*w)}
                 top={(cell[2]*100/this.newImg.height).toString()+"%"}
                 left={(cell[1]*100/this.newImg.width).toString()+"%"}/>);
-            // }
 
         }
         if(this.state.modal){

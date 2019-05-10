@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Button, Row } from 'reactstrap';
 import ImageCell from './Image/Image';
 import Slider from '@material-ui/lab/Slider';
-import './Slides.css';
 
 export default class Slides extends Component {
     constructor(props) {
@@ -102,31 +101,6 @@ export default class Slides extends Component {
                             right: "10%"
                         }}
                     />
-
-                    {/* <Button
-                        onClick={()=>{this.change(null,this.state.pos-1)}}
-                        style={{
-                            width:"2%",
-                            height:"5%",
-                            position:"absolute",
-                            top: "47.5%",
-                            left: "5%"
-                            }}
-                    >
-                        {"<"}
-                    </Button>
-                    <Button
-                        onClick={()=>{this.change(null,this.state.pos+1)}}
-                        style={{
-                            width:"2%",
-                            height:"5%",
-                            position:"absolute",
-                            top: "47.5%",
-                            right: "5%"
-                            }}
-                    >
-                        {">"}
-                    </Button> */}
                 </Row>
             </div>
         );

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 import Slider from '@material-ui/lab/Slider';
-import './RadialTree.css';
-  
 
 export default class RadialTree extends Component {
     constructor(props) {

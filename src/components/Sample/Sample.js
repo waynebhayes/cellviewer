@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Slides from '../Slides/Slides.js';
 import $ from 'jquery';
-import './Sample.css';
 import angles from '../../output/angle.json';
 import srcTree from "../../output/test.svg";
 import srcPie from "../../output/pie.svg";
@@ -13,7 +12,7 @@ export default class Sample extends Component {
         this.state={
             tog: false
         }
-
+        
         this.read = this.read.bind(this);
         this.images = []
         for(var i=0; i<=50; i++){
@@ -27,8 +26,6 @@ export default class Sample extends Component {
             ]);
         }
         this.colony=null;
-
-        
     }
 
     componentDidMount(){

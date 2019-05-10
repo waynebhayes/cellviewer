@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Sample from '../Sample/Sample.js';
-import './Viewer.css';
 
 export default class Viewer extends Component {
     constructor(props) {
