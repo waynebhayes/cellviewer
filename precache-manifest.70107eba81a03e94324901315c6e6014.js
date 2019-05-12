@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/cellviewer/static/media/frame043.741f6a86.png"
   },
   {
-    "revision": "d6bc7e83a58c31b884b8",
+    "revision": "5ae0be63daa7ff10c2d7",
     "url": "/cellviewer/static/css/main.4bbf03ca.chunk.css"
   },
   {
@@ -12,16 +12,20 @@ self.__precacheManifest = [
     "url": "/cellviewer/static/js/runtime~main.30a050fa.js"
   },
   {
-    "revision": "5c4a8172c5d0829af976",
-    "url": "/cellviewer/static/js/2.33884987.chunk.js"
+    "revision": "c65ab793018b0c893b7e",
+    "url": "/cellviewer/static/js/2.eb137b61.chunk.js"
   },
   {
     "revision": "0d4d9c8957f980be72493f74a0d9d3e1",
-    "url": "/cellviewer/static/media/test.0d4d9c89.svg"
+    "url": "/cellviewer/static/media/tree.0d4d9c89.svg"
   },
   {
     "revision": "b15fd32000d3c2a5307e60a7d3d30bf8",
     "url": "/cellviewer/static/media/pie.b15fd320.svg"
+  },
+  {
+    "revision": "429d7dc7b280d5f61bef4e1db55444ef",
+    "url": "/cellviewer/static/media/upload.429d7dc7.png"
   },
   {
     "revision": "4cbbb8956414e64b1b7384eaa28d3737",
@@ -32,8 +36,8 @@ self.__precacheManifest = [
     "url": "/cellviewer/static/media/frame042.4f0a8b3b.png"
   },
   {
-    "revision": "d6bc7e83a58c31b884b8",
-    "url": "/cellviewer/static/js/main.07a4c668.chunk.js"
+    "revision": "5ae0be63daa7ff10c2d7",
+    "url": "/cellviewer/static/js/main.1709fc7e.chunk.js"
   },
   {
     "revision": "a4203baaee7d3b4319cda771025de647",
@@ -64,7 +68,7 @@ self.__precacheManifest = [
     "url": "/cellviewer/static/media/frame050.330fd543.png"
   },
   {
-    "revision": "7d450ba46f2ab8a200e49b47426b81d9",
+    "revision": "a3f9070bece37c8368391b2a7a1e6d33",
     "url": "/cellviewer/index.html"
   }
 ];
