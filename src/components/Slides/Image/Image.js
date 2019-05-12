@@ -47,7 +47,7 @@ export default class ImageCell extends Component {
             w = window.innerWidth * 0.2;
             h = window.innerWidth * 0.2;
         }
-        for(var i=2; i<this.props.colony.length; i++){
+        for(var i=0; i<this.props.colony.length; i++){
             var cell = this.props.colony[i];
             var code = cell[0][1]+cell[0][2];
 
