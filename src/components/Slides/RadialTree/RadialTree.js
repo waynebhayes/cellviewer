@@ -1,17 +1,49 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
-import Slider from '@material-ui/lab/Slider';
+import Switch from '@material-ui/core/Switch';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+
+const StyledSwitch = withStyles({
+    switchBase: {
+      color: "white",
+      '&$checked': {
+        color: "blue",
+      },
+      '& + $track': {
+        backgroundColor: 'red',
+        opacity: 1,
+        color: 'red',
+      },
+      '&$checked + $track': {
+        backgroundColor: 'red',
+        opacity: 1,
+        color: 'red',
+      },
+    },
+    checked: {},
+    track: {
+    },
+    thumb:{
+    },
+    input:{
+    }
+  })(Switch);
+
+const bool_int = {"false":0, "true": 1}
 
 export default class RadialTree extends Component {
     constructor(props) {
         super(props);
         this.changeColor = this.changeColor.bind(this);
         this.state = {
-            posC: 0
+            posC: false
         }
     }
 
     changeColor(e,i){
+        console.log(e,i);
         this.setState({
             posC : i
         });
@@ -42,7 +74,7 @@ export default class RadialTree extends Component {
                         right: (window.innerWidth/4-(l*.79/2)).toString()+"px",
                         top: (window.innerHeight/2-(l*.79/2)).toString()+"px",
                         backgroundColor:"gray",
-                        display:["none","initial"][posC]
+                        display:["none","initial"][bool_int[posC]]
                     }}
                 />
                 <img
@@ -71,21 +103,33 @@ export default class RadialTree extends Component {
                     }}
                 />
 
-                <Slider
-                    value={posC}
-                    min={0}
-                    max={1}
-                    step={1}
-                    onChange={this.changeColor}
-                    onClick={()=>{this.changeColor(null,1-posC)}}
-                    style={{
-                        width:"2%",
-                        height:"5%",
+                <Typography component="div" style={{
                         position:"absolute",
-                        top: "5%",
-                        right: "10%"
-                    }}
-                />
+                        opacity: "0.5",
+                        borderRadius: "20px",
+                        top: "2%",
+                        right: "10%",
+                        color: "white",
+                        backgroundColor:"#555555",
+                        paddingLeft: "2%",
+                        paddingRight: "2%",
+                        paddingTop: "0.5%",
+                        paddingBottom: "0.5%"
+                    }}>
+                    <Grid component="label" container alignItems="center"
+                            style={{
+                            }}>
+                        <Grid item>Show Path</Grid>
+                        <Grid item>
+                            <Switch
+                                color="primary"
+                                checked={posC}
+                                onChange={this.changeColor}
+                                value={posC}
+                            />
+                        </Grid>
+                    </Grid>
+                </Typography>
                 
             </Container>
         );

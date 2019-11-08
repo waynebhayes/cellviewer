@@ -6,6 +6,8 @@ import math
 import sys
 from pathlib import Path
 
+from config import *
+
 from svgwrite import Drawing
 
 from parseColony import parseColony
@@ -259,7 +261,7 @@ def main():
     lowest_angle = 2*math.pi/total_leaves
     step_size = SVG_SIZE/2/(last_image+2)
     angle_spacings = angle_spacing_generator(total_leaves)
-    angleFile = open(args.output_path+"/angle.json", 'w')
+    angleFile = open(args.output_path+"/"+angleFilename, 'w')
     angleFile.write("{\n\t\"name\": \"angle\"")
     for root in root_list:
         set_angles(root, angle_spacings, lowest_angle, angleFile)
@@ -271,10 +273,10 @@ def main():
         compress_tree(root)
 
     # Draw the SVG radial tree plot
-    save_radial_tree_plot(args.output_path+"/tree.svg", root_list, step_size)
+    save_radial_tree_plot(args.output_path+"/"+treeFilename, root_list, step_size)
     
     # Draw the SVG pie color chart
-    save_pie_chart(args.output_path+"/pie.svg", root_list, step_size)
+    save_pie_chart(args.output_path+"/"+pieFilename, root_list, step_size)
     
 
 if __name__ == '__main__':

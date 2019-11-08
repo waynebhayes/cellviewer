@@ -3,11 +3,14 @@
 Converts colony.csv from Cell Universe to input 
 for radialtree.py and Cell Viewer"""
 
+from config import *
+
 def parseColony(pathname):
 
     # read result from Cell Universe
-    f = open(pathname+"/colony.csv", 'r')
+    f = open(pathname+"/"+lineageFilename, 'r')
     data = [line.strip().split(',') for line in f]
+    f.close()
     headers = {data[0][k]:k for k in range(len(data[0]))}
     out = []
     data.pop(0)
@@ -22,9 +25,9 @@ def parseColony(pathname):
         line = {}
 
         # ImageNumber, frameName
-        if frame[1]!=cell[headers["frame"]]:
+        if frame[1]!=cell[headers["file"]]:
             frame[0]+=1
-            frame[1]=cell[headers["frame"]]
+            frame[1]=cell[headers["file"]]
             colony.append({
                 "frame": frame[1],
                 "cells": []
@@ -49,10 +52,9 @@ def parseColony(pathname):
             cell[headers["y"]]
         ])
     
-    f.close()
 
     # output colony json file
-    fout = open(pathname+"/colony.json", 'w')
+    fout = open(pathname+"/"+colonyFilename, 'w')
     fout.write(
         "{\n\t"+
             "\"frames\": "+str(frame[0])+",\n\t"

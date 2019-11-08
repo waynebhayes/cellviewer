@@ -141,8 +141,8 @@ export default class Viewer extends Component {
                 src={upload} alt=""
                 style={{
                     position:"absolute",
-                    top:"2%",
-                    right:"2%",
+                    top:"3%",
+                    right:"3%",
                     width:"4%",
                     height:"7%"
                 }} />
