@@ -100,6 +100,7 @@ export default class Slides extends Component {
                         srcTree={this.props.srcTree}
                         pos={(this.pos+1.5)/(this.images.length+2)}
                         src_pie={this.props.src_pie}
+                        colors = {this.props.colors}
                         angles={this.props.angles}/>
 
                     {/* --------------------------  Player and Progress Bar-------------------------- */}

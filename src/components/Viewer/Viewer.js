@@ -14,6 +14,9 @@ export default class Viewer extends Component {
         };
         this.updateInputValue = this.updateInputValue.bind(this);
         this.readCol = this.readCol.bind(this);
+
+        this.colors={   "0":"red","1":"blue",
+                        "00":"red","01":"green","10":"blue","11":"yellow"}
         
         this.data0 = {
             angles: angles,
@@ -130,6 +133,7 @@ export default class Viewer extends Component {
             this.data0 = this.data;
             this.slides = <Slides 
                     id = "slide"
+                    colors = {this.colors}
                     {...this.data0}
             />;
         }
