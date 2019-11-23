@@ -2,8 +2,7 @@
 
 Props:
 - imgs      = [[imageSrc,framename]]    (main)
-- srcTree   = tree SVG                  (radialtree)
-- src_pie   = pie SVG                   (radialtree)
+- frames    = {} from frames.JSON       (radialtree)
 - colony    = {} from colony.JSON       (parseColony)
 - angles    = {} from angles.JSON       (radialtree)
 
@@ -95,13 +94,13 @@ export default class Slides extends Component {
             <div>
                 <Row>
                     <ImageCell
+                        curr={this.pos}
                         src={this.images[this.pos]} 
                         colony={this.colony[this.pos.toString()]["cells"]}
-                        srcTree={this.props.srcTree}
                         pos={(this.pos+1.5)/(this.images.length+2)}
-                        src_pie={this.props.src_pie}
                         colors = {this.props.colors}
-                        angles={this.props.angles}/>
+                        angles={this.props.angles}
+                        frames={this.props.frames}/>
 
                     {/* --------------------------  Player and Progress Bar-------------------------- */}
                     <Grid container direction="row" justify="center" alignItems="center" style={{

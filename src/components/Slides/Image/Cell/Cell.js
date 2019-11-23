@@ -65,7 +65,7 @@ export default class Cell extends Component {
                     style={{
                         position:"absolute",
                         bottom:this.props.bottomR,
-                        left:this.props.leftR,
+                        left:this.props.leftR-3.5,
                         backgroundColor:this.state.background,
                         width:"7px",
                         height:"7px"

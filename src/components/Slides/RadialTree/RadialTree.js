@@ -3,33 +3,7 @@ import { Container } from 'reactstrap';
 import Switch from '@material-ui/core/Switch';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
-
-const StyledSwitch = withStyles({
-    switchBase: {
-      color: "white",
-      '&$checked': {
-        color: "blue",
-      },
-      '& + $track': {
-        backgroundColor: 'red',
-        opacity: 1,
-        color: 'red',
-      },
-      '&$checked + $track': {
-        backgroundColor: 'red',
-        opacity: 1,
-        color: 'red',
-      },
-    },
-    checked: {},
-    track: {
-    },
-    thumb:{
-    },
-    input:{
-    }
-  })(Switch);
+import Canvas from './Canvas.js'
 
 const bool_int = {"false":0, "true": 1}
 
@@ -65,43 +39,19 @@ export default class RadialTree extends Component {
                         margin:"0", 
                         padding:"0",
                         display:"contents"}}>
-                <img
-                    alt=""
+
+                <Canvas 
+                    angles={this.props.angles}
+                    frames={this.props.frames}
+                    colors={this.props.colors}
+                    curr={this.props.curr}
+                    l={l}
+                    posC={posC}
                     style={{
                         position:"absolute",
-                        height: (l*.79).toString()+"px",
-                        width: (l*.79).toString()+"px",
-                        right: (window.innerWidth/4-(l*.79/2)).toString()+"px",
-                        top: (window.innerHeight/2-(l*.79/2)).toString()+"px",
-                        backgroundColor:"gray",
-                        display:["none","initial"][bool_int[posC]]
-                    }}
-                />
-                <img
-                    id="pie"
-                    src={this.props.src_pie}
-                    alt="im"
-                    className="image2"
-                    style={{
-                        position:"absolute",
-                        height: (this.props.pos*l*.8).toString()+"px",
-                        width: (this.props.pos*l*.8).toString()+"px",
-                        right: (window.innerWidth/4-this.props.pos*l*.4).toString()+"px",
-                        top: (window.innerHeight/2-this.props.pos*l*.4).toString()+"px"
+                        right: 0,
+                        top: 0
                     }}/>
-                <img
-                    id="tree"
-                    src={this.props.src} 
-                    alt="im"
-                    className="image2"
-                    style={{
-                        position:"absolute",
-                        height: (l*.8).toString()+"px",
-                        width: (l*.8).toString()+"px",
-                        right: (window.innerWidth/4-l*.4).toString()+"px",
-                        top: (window.innerHeight/2-l*.4).toString()+"px"
-                    }}
-                />
 
                 <Typography component="div" style={{
                         position:"absolute",

@@ -19,8 +19,6 @@ export default class ImageCell extends Component {
         this.newImg.onload = this.getSize;
         this.newImg.src = props.src;
 
-        this.colors = {};
-
         window.onresize = this.getSize;
     }
 
@@ -49,11 +47,6 @@ export default class ImageCell extends Component {
                 c--;
             }
             color = this.props.colors[cell[0].slice(1,c)];
-
-            // color = "rgb(" +
-            //     (255*colors[code][0]).toString() + "," +
-            //     (255*colors[code][1]).toString() + "," +
-            //     (255*colors[code][2]).toString() + ")";
             
             this.labels.push(
                 <Cell
@@ -69,9 +62,11 @@ export default class ImageCell extends Component {
             return (
                 <div>
                     <RadialTree
+                        curr={this.props.curr}
                         pos={this.props.pos}
-                        src={this.props.srcTree}
-                        src_pie={this.props.src_pie}/>
+                        frames={this.props.frames}
+                        angles={this.props.angles}
+                        colors={this.props.colors}/>
                     <Container  style={{
                                     margin:"0", 
                                     padding:"0",

@@ -2,9 +2,8 @@ import React, { Component} from 'react';
 import upload from "./upload.png";
 import Slides from '../Slides/Slides.js';
 import angles from '../../output/angle.json';
-import srcTree from "../../output/tree.svg";
-import srcPie from "../../output/pie.svg";
 import colony from "../../output/colony.json";
+import frame_ranges from "../../output/frames.json";
 
 export default class Viewer extends Component {
     constructor(props) {
@@ -22,16 +21,14 @@ export default class Viewer extends Component {
             angles: angles,
             colony: colony,
             imgs: [],
-            srcTree: srcTree,
-            src_pie: srcPie
+            frames: frame_ranges
         }
 
         this.data = {
             angles: angles,
             colony: colony,
             imgs: [],
-            srcTree: srcTree,
-            src_pie: srcPie
+            frames: frame_ranges
         }
 
         for(var i=0; i<=50; i++){
@@ -63,7 +60,7 @@ export default class Viewer extends Component {
         this.setState({
             progress: this.state.progress+1
         });
-        this.l = this.data.colony["frames"]+4;
+        this.l = this.data.colony["frames"]+3;
 
         var anglereader = new FileReader();
         anglereader.onload = (e) => {
@@ -74,25 +71,16 @@ export default class Viewer extends Component {
         };
         anglereader.readAsText(this.hash["angle.json"]);
 
-        var piereader = new FileReader();
-        piereader.onload = (e) => {
-            this.data["src_pie"] = e.target.result;
+        var framereader = new FileReader();
+        framereader.onload = (e) => {
+            this.data["frames"] = JSON.parse(e.target.result);
             this.setState({
                 progress: this.state.progress+1
             });
         };
-        piereader.readAsDataURL(this.hash["pie.svg"]);
+        framereader.readAsText(this.hash["frames.json"]);
 
-        var treereader = new FileReader();
-        treereader.onload = (e) => {
-            this.data["srcTree"] = e.target.result;
-            this.setState({
-                progress: this.state.progress+1
-            });
-        };
-        treereader.readAsDataURL(this.hash["tree.svg"]);
-
-        for(var i=0; i<this.l-4; i++){
+        for(var i=0; i<this.l-3; i++){
             this.getImage(i,this.data.colony[i.toString()]["frame"].split("/").pop());
         }
     }
@@ -106,8 +94,7 @@ export default class Viewer extends Component {
                 angles: {},
                 colony: {},
                 imgs: [],
-                srcTree: null,
-                src_pie: null
+                frames: {}
             }
             var files = e.target.files;
             for(var i=0; i<files.length; i++){
