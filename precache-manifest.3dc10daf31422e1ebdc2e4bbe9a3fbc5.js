@@ -1,27 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "741f6a8644020cdcb4f7a993fe2c6bf6",
-    "url": "/cellviewer/static/media/frame043.741f6a86.png"
+    "revision": "a4203baaee7d3b4319cda771025de647",
+    "url": "/cellviewer/static/media/frame044.a4203baa.png"
   },
   {
-    "revision": "1e6d4738103f69b944d2",
-    "url": "/cellviewer/static/css/main.e96ca6b3.chunk.css"
+    "revision": "33e3edf1b73778c34be4",
+    "url": "/cellviewer/static/css/main.4bbf03ca.chunk.css"
   },
   {
     "revision": "bed2f6328139c2bad188",
     "url": "/cellviewer/static/js/runtime~main.30a050fa.js"
   },
   {
-    "revision": "35e39e98b96c9a27c330",
-    "url": "/cellviewer/static/js/2.9a7a4abd.chunk.js"
-  },
-  {
-    "revision": "0d4d9c8957f980be72493f74a0d9d3e1",
-    "url": "/cellviewer/static/media/tree.0d4d9c89.svg"
-  },
-  {
-    "revision": "b15fd32000d3c2a5307e60a7d3d30bf8",
-    "url": "/cellviewer/static/media/pie.b15fd320.svg"
+    "revision": "e9d60f770687f683fbd7",
+    "url": "/cellviewer/static/js/2.437a38bc.chunk.js"
   },
   {
     "revision": "429d7dc7b280d5f61bef4e1db55444ef",
@@ -36,12 +28,12 @@ self.__precacheManifest = [
     "url": "/cellviewer/static/media/frame042.4f0a8b3b.png"
   },
   {
-    "revision": "1e6d4738103f69b944d2",
-    "url": "/cellviewer/static/js/main.be79d94e.chunk.js"
+    "revision": "741f6a8644020cdcb4f7a993fe2c6bf6",
+    "url": "/cellviewer/static/media/frame043.741f6a86.png"
   },
   {
-    "revision": "a4203baaee7d3b4319cda771025de647",
-    "url": "/cellviewer/static/media/frame044.a4203baa.png"
+    "revision": "33e3edf1b73778c34be4",
+    "url": "/cellviewer/static/js/main.38dfc361.chunk.js"
   },
   {
     "revision": "142e5f5cb829451f0ea6c96fe60f8bd6",
@@ -68,7 +60,7 @@ self.__precacheManifest = [
     "url": "/cellviewer/static/media/frame050.330fd543.png"
   },
   {
-    "revision": "592dd33202e505ceab0656cec2029cb1",
+    "revision": "aec93a1aa6367f4aa93e1986b470ba37",
     "url": "/cellviewer/index.html"
   }
 ];
