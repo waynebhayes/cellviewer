@@ -38,6 +38,18 @@ export default class Cell extends Component {
             background: this.temp_color
         });
     }
+    colorRevert(color){
+        this.i = this.props.k.length-1;
+        while(!this.props.colors.hasOwnProperty(this.props.k.slice(1,this.i))){
+            this.i--;
+        }
+        this.props.colors[this.props.k.slice(1)] = this.props.colors[this.props.k.slice(1,this.i)];
+        this.setState({
+            background: this.props.colors[this.props.k.slice(1)]
+        })
+    }
+
+
 
     render() {
         this.picker = 
@@ -97,11 +109,14 @@ export default class Cell extends Component {
                             borderBottomRightRadius:"5px"}}>
                         {this.picker}
 
-                        <Button onClick={()=>{this.click(0);}} style={{width:"50%"}}>
+                        <Button onClick={()=>{this.click(0);}} style={{width:"33%"}}>
                             Cancel
                         </Button>
-                        <Button onClick={()=>{this.click(0);this.save();}} style={{width:"50%"}}>
+                        <Button onClick={()=>{this.click(0);this.save();}} style={{width:"33%"}}>
                             Set
+                        </Button>
+                        <Button onClick={()=>{this.click(0);this.colorRevert();}} style={{width:"33%"}}>
+                            Revert
                         </Button>
                     </div>
                 </Tooltip>
@@ -117,11 +132,14 @@ export default class Cell extends Component {
                             borderTopRightRadius:"5px",
                             borderBottomRightRadius:"5px"}}>
                         {this.picker}
-                        <Button onClick={()=>{this.click(0);}} style={{width:"50%"}}>
+                        <Button onClick={()=>{this.click(0);}} style={{width:"33%"}}>
                             Cancel
                         </Button>
-                        <Button onClick={()=>{this.click(0);this.save();}} style={{width:"50%"}}>
+                        <Button onClick={()=>{this.click(0);this.save();}} style={{width:"33%"}}>
                             Set
+                        </Button>
+                        <Button onClick={()=>{this.click(0);this.colorRevert();}} style={{width:"33%"}}>
+                            Revert
                         </Button>
                     </div>
                 </Tooltip>
